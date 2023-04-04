@@ -1,5 +1,6 @@
+import React from "react";
 import { createRoot } from "react-dom/client";
-
+import Greeting from "./components/Greeting";
 // This is the dom element that react will render into,
 // per convention, it is usually a div with an id of "root".
 const rootElement = document.querySelector("#root");
@@ -9,4 +10,21 @@ const root = createRoot(rootElement);
 
 // Call render on the root to render the elements into the DOM.
 // Notice that this is NOT a template literal, it is JSX.
-root.render(<h1>Hello World</h1>);
+
+console.log("dateiebene");
+
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
+
+function App() {
+  return (
+    <div>
+      <Greeting />
+      <label htmlFor="input">Label</label>
+      <input id="input" />
+    </div>
+  );
+}
